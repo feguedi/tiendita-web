@@ -18,7 +18,7 @@ const verifyToken = (req, res, next) => {
         // Next middleware
         next()
     } else {
-        res.sendStatus(403).render('error', {
+        res.status(403).render('error', {
             codigo: 403,
             error: true
         })

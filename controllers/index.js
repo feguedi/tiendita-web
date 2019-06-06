@@ -1,5 +1,6 @@
 'use strict'
 const jwt = require('jsonwebtoken')
+const { crearUsuario } = require('../models')
 const { SECRET_KEY } = require('../config')
 
 const getIndex = (req, res) => {
@@ -23,7 +24,17 @@ const getRegistrar = (req, res) => {
 }
 
 const postUsuario = (req, res) => {
-    res.json({ message: 'post Usuario' })
+    // res.json({ message: 'post Usuario' })
+    let body = req.body
+    let nombre = body.name
+    let username = body.username
+    let email = body.email
+    let password = body.password
+
+    crearUsuario({ nombre, username, email, password }, (err, usuarioBD) => {
+        if (err) res.status(400).render('error', { codigo: 400, mensaje: err })
+        res.json({ message: `Mensaje de la BD: ${ usuarioBD }` })
+    })
 }
 
 const getCategorias = (req, res) => {

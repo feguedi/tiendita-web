@@ -16,7 +16,7 @@ const routes = app => {
 
     app.route('/registrar')
        .get(getRegistrar)
-       .post(verifyToken, postUsuario)
+       .post(postUsuario)
 
     app.route('/categorias')
         .get(getCategorias)
