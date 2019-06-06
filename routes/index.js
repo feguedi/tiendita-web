@@ -1,5 +1,5 @@
 'use strict'
-const { getIndex, getCatalogo, getLogin, postLogin, getRegistrar, postUsuario, getCategorias, getCategoria, getArticulo, getCarrito, postCarrito, putCarrito, deleteCarrito, getPerfil, putPerfil, getEnvios, getEnvio, postEnvio } = require("../controllers")
+const { getIndex, getCatalogo, getLogin, postLogin, getRegistrar, postUsuario, getCategorias, getCategoria, getArticulo, getCarrito, postCarrito, putCarrito, deleteCarrito, getPerfil, putPerfil, getEnvios, getEnvio, postEnvio, getLogout } = require("../controllers")
 const verifyToken = require("../controllers/token")
 
 const routes = app => {
@@ -41,8 +41,11 @@ const routes = app => {
        .get(getEnvios)
 
     app.route('/perfil/envio/:id')
-       .get(getEnvio)
-       .post(postEnvio)
+       .get(verifyToken, getEnvio)
+       .post(verifyToken, postEnvio)
+
+    app.route('/logout')
+       .get(verifyToken, getLogout)
 
 }
 

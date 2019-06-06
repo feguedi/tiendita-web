@@ -1,8 +1,4 @@
 'use strict'
-//const express = require('express')
-//const app = express()
-//const bodyParser = require('body-parser')
-//const favicon = require('serve-favicon')
 const { PORT } = require("./config")
 const routes = require("./routes")
 const Express = require( "express")

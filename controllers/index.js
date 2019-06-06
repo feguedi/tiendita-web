@@ -1,31 +1,33 @@
 'use strict'
+const jwt = require('jsonwebtoken')
+const { SECRET_KEY } = require('../config')
 
 const getIndex = (req, res) => {
-
+    res.json({ message: 'get Index' })
 }
 
 const getCatalogo = (req, res) => {
-
+    res.json({ message: 'get Catalogo' })
 }
 
 const getLogin = (req, res) => {
-    
+    res.json({ message: 'get Login' })
 }
 
 const postLogin = (req, res) => {
-    
+    res.json({ message: 'post Login' })
 }
 
 const getRegistrar = (req, res) => {
-
+    res.json({ message: 'get Registrar' })
 }
 
 const postUsuario = (req, res) => {
-
+    res.json({ message: 'post Usuario' })
 }
 
 const getCategorias = (req, res) => {
-    
+    res.json({ message: 'get Categorias' })
 }
 
 const getCategoria = (req, res) => {
@@ -51,31 +53,31 @@ const getArticulo = (req, res) => {
 }
 
 const getCarrito = (req, res) => {
-
+    res.json({ message: 'get Carrito' })
 }
 
 const postCarrito = (req, res) => {
-
+    res.json({ message: 'post Carrito' })
 }
 
 const putCarrito = (req, res) => {
-
+    res.json({ message: 'put Carrito' })
 }
 
 const deleteCarrito = (req, res) => {
-
+    res.json({ message: 'delete Carrito' })
 }
 
 const getPerfil = (req, res) => {
-
+    res.json({ message: 'get Perfil' })
 }
 
 const putPerfil = (req, res) => {
-
+    res.json({ message: 'put Perfil' })
 }
 
 const getEnvios = (req, res) => {
-
+    res.json({ message: 'get Envios' })
 }
 
 const getEnvio = (req, res) => {
@@ -90,7 +92,24 @@ const getEnvio = (req, res) => {
 }
 
 const postEnvio = (req, res) => {
+    res.json({ message: 'post Envio' })
+}
 
+const getLogout = (req, res) => {
+    jwt.verify(req.token, SECRET_KEY, (err, authData) => {
+        console.log(`/logout: token: ${ req.token }`)
+        if(err) {
+            res.sendStatus(403)
+            console.log(`/logout: ${ err }`)
+            console.log(`/logout: ${ typeof authData }`)
+        }
+        else {
+            res.json({
+                message: 'get Logout',
+                authData
+            })
+        }
+    })
 }
 
 module.exports = {
@@ -111,5 +130,6 @@ module.exports = {
     putPerfil,
     getEnvios,
     getEnvio,
-    postEnvio
+    postEnvio,
+    getLogout
 }
