@@ -1,11 +1,14 @@
 'use strict'
-import { getIndex, getLogin, postLogin, getRegistrar, postUsuario, getCategorias, getCategoria, getArticulo, getCarrito, postCarrito, putCarrito, deleteCarrito } from "../controllers"
-import { verifyToken } from "../controllers/token"
+const { getIndex, getCatalogo, getLogin, postLogin, getRegistrar, postUsuario, getCategorias, getCategoria, getArticulo, getCarrito, postCarrito, putCarrito, deleteCarrito, getPerfil, putPerfil, getEnvios, getEnvio, postEnvio } = require("../controllers")
+const verifyToken = require("../controllers/token")
 
-export const routes = app => {
+const routes = app => {
 
     app.route('/')
        .get(getIndex)
+
+    app.route('/catalogo')
+       .get(getCatalogo)
 
     app.route('/login')
        .get(getLogin)
@@ -30,5 +33,17 @@ export const routes = app => {
        .put(verifyToken, putCarrito)
        .delete(verifyToken, deleteCarrito)
 
+    app.route('/perfil')
+       .get(getPerfil)
+       .put(putPerfil)
+
+    app.route('/perfil/envios')
+       .get(getEnvios)
+
+    app.route('/perfil/envio/:id')
+       .get(getEnvio)
+       .post(postEnvio)
+
 }
 
+module.exports = routes

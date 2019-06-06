@@ -3,12 +3,13 @@
 //const app = express()
 //const bodyParser = require('body-parser')
 //const favicon = require('serve-favicon')
-import { PORT } from "./config"
-import { routes } from "./routes"
-import * as Express from "express"
-import * as bodyParser from "body-parser"
-import * as favicon from "serve-favicon"
-import * as hbs from "hbs"
+const { PORT } = require("./config")
+const routes = require("./routes")
+const Express = require( "express")
+const bodyParser = require( "body-parser")
+const favicon = require( "serve-favicon")
+const path = require('path')
+const hbs = require( "hbs")
 
 const app = Express()
 

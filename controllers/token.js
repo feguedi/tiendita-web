@@ -1,6 +1,6 @@
 'use strict'
 // Verify token
-export const verifyToken = (req, res, next) => {
+const verifyToken = (req, res, next) => {
     // get auth header value
     const bearerHeader = req.headers['authorization']
 
@@ -24,3 +24,5 @@ export const verifyToken = (req, res, next) => {
         })
     }
 }
+
+module.exports = verifyToken

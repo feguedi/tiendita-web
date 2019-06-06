@@ -1,30 +1,34 @@
 'use strict'
 
-export const getIndex = (req, res) => {
+const getIndex = (req, res) => {
 
 }
 
-export const getLogin = (req, res) => {
+const getCatalogo = (req, res) => {
+
+}
+
+const getLogin = (req, res) => {
     
 }
 
-export const postLogin = (req, res) => {
+const postLogin = (req, res) => {
     
 }
 
-export const getRegistrar = (req, res) => {
+const getRegistrar = (req, res) => {
 
 }
 
-export const postUsuario = (req, res) => {
+const postUsuario = (req, res) => {
 
 }
 
-export const getCategorias = (req, res) => {
+const getCategorias = (req, res) => {
     
 }
 
-export const getCategoria = (req, res) => {
+const getCategoria = (req, res) => {
     const id = req.params.id
 
     const obj = {
@@ -35,7 +39,7 @@ export const getCategoria = (req, res) => {
     res.json(obj)
 }
 
-export const getArticulo = (req, res) => {
+const getArticulo = (req, res) => {
     const id = req.params.id
 
     const obj = {
@@ -46,18 +50,66 @@ export const getArticulo = (req, res) => {
     res.json(obj)
 }
 
-export const getCarrito = (req, res) => {
+const getCarrito = (req, res) => {
 
 }
 
-export const postCarrito = (req, res) => {
+const postCarrito = (req, res) => {
 
 }
 
-export const putCarrito = (req, res) => {
+const putCarrito = (req, res) => {
 
 }
 
-export const deleteCarrito = (req, res) => {
+const deleteCarrito = (req, res) => {
 
+}
+
+const getPerfil = (req, res) => {
+
+}
+
+const putPerfil = (req, res) => {
+
+}
+
+const getEnvios = (req, res) => {
+
+}
+
+const getEnvio = (req, res) => {
+    const id = req.params.id
+
+    const obj = {
+        id,
+        content: 'Content ' + id
+    }
+
+    res.json(obj)
+}
+
+const postEnvio = (req, res) => {
+
+}
+
+module.exports = {
+    getIndex,
+    getCatalogo,
+    getLogin,
+    postLogin,
+    getRegistrar,
+    postUsuario,
+    getCategorias,
+    getCategoria,
+    getArticulo,
+    getCarrito,
+    postCarrito,
+    putCarrito,
+    deleteCarrito,
+    getPerfil,
+    putPerfil,
+    getEnvios,
+    getEnvio,
+    postEnvio
 }
