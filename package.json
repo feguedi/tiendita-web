@@ -1,6 +1,6 @@
 {
   "name": "tiendita-web",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Aplicación que permite comprar artículos de papelería a través de una aplicación web",
   "main": "index.js",
   "repository": "https://github.com/feguedi/tiendita-web",
