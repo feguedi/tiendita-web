@@ -1,0 +1,28 @@
+{
+  "name": "tiendita-web",
+  "version": "1.0.0",
+  "description": "Aplicación que permite comprar artículos de papelería a través de una aplicación web",
+  "main": "index.js",
+  "repository": "https://github.com/feguedi/tiendita-web",
+  "scripts": {
+    "start": "nodemon index.js -e js,hbs,html,css"
+  },
+  "author": "Ixe Fernández",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "async": "^3.0.1",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "hbs": "^4.0.4",
+    "jsonwebtoken": "^8.5.1",
+    "path": "^0.12.7",
+    "serve-favicon": "^2.5.0"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "jslint": "^0.12.1",
+    "nodemon": "^1.19.1"
+  }
+}
