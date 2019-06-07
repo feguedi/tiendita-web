@@ -1,10 +1,18 @@
 'use strict'
 const jwt = require('jsonwebtoken')
 const { crearUsuario } = require('../models')
+const { hashSync } = require('bcrypt')
+const { generateEmailToken } = require('./token')
+const { enviarCorreo } = require('./email')
 const { SECRET_KEY } = require('../config')
 
 const getIndex = (req, res) => {
     res.json({ message: 'get Index' })
+}
+
+const getConfirmacionRegistro = (req, res) => {
+    let token = req.params.token
+    
 }
 
 const getCatalogo = (req, res) => {
@@ -20,20 +28,30 @@ const postLogin = (req, res) => {
 }
 
 const getRegistrar = (req, res) => {
-    res.json({ message: 'get Registrar' })
+    res.render('layouts/registrar', { title: 'Regístrate' })
 }
 
 const postUsuario = (req, res) => {
-    // res.json({ message: 'post Usuario' })
     let body = req.body
     let nombre = body.name
     let username = body.username
     let email = body.email
-    let password = body.password
+    let password = hashSync(body.password, 10)
 
-    crearUsuario({ nombre, username, email, password }, (err, usuarioBD) => {
-        if (err) res.status(400).render('error', { codigo: 400, mensaje: err })
-        res.json({ message: `Mensaje de la BD: ${ usuarioBD }` })
+    crearUsuario({ nombre, username, email, password, estado }, (err, usuarioBD) => {
+        if (err) return res.status(400).render('error', { codigo: 400, mensaje: err })
+        res.json({ message: usuarioBD })
+    })
+
+    const datosCorreo = {
+        to: email,
+        subject: '',
+        text: ''
+    }
+
+    enviarCorreo(datosCorreo, (err, msj) => {
+        if (err) console.log(`Error: ${ err }`)
+        console.log(`${ msj }`)
     })
 }
 
@@ -125,6 +143,7 @@ const getLogout = (req, res) => {
 
 module.exports = {
     getIndex,
+    getConfirmacionRegistro,
     getCatalogo,
     getLogin,
     postLogin,

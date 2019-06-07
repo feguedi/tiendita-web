@@ -25,4 +25,11 @@ const verifyToken = (req, res, next) => {
     }
 }
 
-module.exports = verifyToken
+const generateEmailToken = () => {
+
+}
+
+module.exports = {
+    verifyToken,
+    generateEmailToken
+}
