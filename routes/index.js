@@ -7,7 +7,7 @@ const routes = app => {
     app.route('/')
         .get(getIndex)
 
-    app.route('/:token')
+    app.route('/s/:token')
         .get(getConfirmacionRegistro)
 
     app.route('/catalogo')
@@ -15,7 +15,7 @@ const routes = app => {
 
     app.route('/login')
         .get(getLogin)
-        .post(verifyToken, postLogin)
+        .post(postLogin)
 
     app.route('/registrar')
         .get(getRegistrar)

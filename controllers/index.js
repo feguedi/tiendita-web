@@ -2,9 +2,8 @@
 const jwt = require('jsonwebtoken')
 const { crearUsuario } = require('../models')
 const { hashSync } = require('bcrypt')
-const { generateEmailToken } = require('./token')
-const { enviarCorreo } = require('./email')
-const { SECRET_KEY } = require('../config')
+const { enviarCorreo, plantillaRegistroPendiente } = require('./email')
+const { SECRET_KEY, HOST, PORT } = require('../config')
 
 const getIndex = (req, res) => {
     res.json({ message: 'get Index' })
@@ -12,7 +11,12 @@ const getIndex = (req, res) => {
 
 const getConfirmacionRegistro = (req, res) => {
     let token = req.params.token
-    
+    // TODO: buscar usuario con dicho token
+    jwt.verify(token, SECRET_KEY, (err, authData) => {
+        if (err) res.status(400).render('error', { codigo: 400 })
+        else res.render('layouts/reg-success', { registro: false, nombre: authData.username })
+    })
+    // TODO: eliminar registro de token en el usuario que lo tenga
 }
 
 const getCatalogo = (req, res) => {
@@ -20,11 +24,13 @@ const getCatalogo = (req, res) => {
 }
 
 const getLogin = (req, res) => {
-    res.json({ message: 'get Login' })
+    res.render('layouts/login', { title: 'Entrar' })
+    // res.json({ message: 'get Login' })
 }
 
 const postLogin = (req, res) => {
-    res.json({ message: 'post Login' })
+    // res.json({ message: 'post Login' })
+    res.render('index', { title: `Login exitoso`, mensaje: x`${ req }` })
 }
 
 const getRegistrar = (req, res) => {
@@ -37,16 +43,18 @@ const postUsuario = (req, res) => {
     let username = body.username
     let email = body.email
     let password = hashSync(body.password, 10)
+    let token = jwt.sign({ username, password }, SECRET_KEY, { expiresIn: '24h' })
 
-    crearUsuario({ nombre, username, email, password, estado }, (err, usuarioBD) => {
+    crearUsuario({ nombre, username, email, password, reg_token: token }, (err, usuarioBD) => {
         if (err) return res.status(400).render('error', { codigo: 400, mensaje: err })
-        res.json({ message: usuarioBD })
+        // let token = generateEmailToken(usuarioBD.email)
+        res.render('layouts/reg-success', { registro: true, nombre: usuarioBD.nombre, title: 'Registro exitoso' })
     })
 
     const datosCorreo = {
         to: email,
-        subject: '',
-        text: ''
+        subject: 'Correo de confirmación',
+        text: plantillaRegistroPendiente({ nombre, url: `${ HOST }:${ PORT }`, token })
     }
 
     enviarCorreo(datosCorreo, (err, msj) => {

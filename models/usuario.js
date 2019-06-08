@@ -1,6 +1,7 @@
 'use strict'
 const { Schema, model } = require('mongoose')
 const uniqueValidator = require('mongoose-unique-validator')
+const { generateEmailToken } = require('../controllers/token')
 
 const UsuarioSchema = new Schema({
     nombre: {
@@ -32,6 +33,10 @@ const UsuarioSchema = new Schema({
     confirmado: {
         type: Boolean,
         default: false,
+        required: true
+    },
+    reg_token: {
+        type: String,
         required: true
     }
 })

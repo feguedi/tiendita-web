@@ -7,6 +7,7 @@ const { parsed: env } = res
 
 module.exports = {
     PORT: env.PORT,
+    HOST: env.HOST,
     SECRET_KEY: env.SECRET_KEY,
     HOME: env.HOME,
     ADMIN_EMAIL: env.ADMIN_EMAIL,

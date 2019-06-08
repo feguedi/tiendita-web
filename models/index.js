@@ -18,10 +18,10 @@ const crearUsuario = (obj = undefined, callback) => {
         callback({ message: `Error en envío de datos` })
     }
 
-    let { nombre, direccion, username, email, password } = obj
+    let { nombre, direccion, username, email, password, reg_token } = obj
     
     let usuario = new Usuario({
-        nombre, direccion, username, email, password
+        nombre, direccion, username, email, password, reg_token
     })
 
     usuario.save((err, usuarioBD) => {

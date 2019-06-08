@@ -8,16 +8,20 @@
             <div class="block-heading">
                 <h2 class="text-info">Regístrate</h2>
             </div>
-            <form>
-                <div class="form-group"><label for="name">Nombre</label><input class="form-control item" type="text" id="reg-name"></div>
-                <div class="form-group"><label for="email">Correo</label><input class="form-control item" type="email" id="reg-email"></div>
-                <div class="form-group"><label for="username">Apodo</label><input class="form-control item" type="text" id="reg-username"></div>
-                <div class="form-group"><label for="password">Contraseña</label><input class="form-control item"type="password" id="reg-password"></div>
+            <form method="POST" action="/registrar" enctype="application/x-www-form-urlencoded">
+                <div class="form-group"><label for="name">Nombre</label><input class="form-control item" type="text" name="name" id="reg-name"></div>
+                <div class="form-group"><label for="email">Correo</label><input class="form-control item" type="email" name="email" id="reg-email"></div>
+                <div class="form-group"><label for="username">Apodo</label><input class="form-control item" type="text" name="username" id="reg-username"></div>
+                <div class="form-group"><label for="password">Contraseña</label><input class="form-control item"type="password" name="password" id="reg-password"></div>
                 <button id="btn-registrar" class="btn btn-primary btn-block" type="submit">Registrar</button>
-                <p class="text-center">"¿Ya tienes cuenta? "<a href="/login">Inicia sesión</a></p>
+                <p class="text-center">¿Ya tienes cuenta? <a href="/login">Inicia sesión</a></p>
             </form>
         </div>
     </section>
 </main>
+
+<div id="respuesta">
+
+</div>
 
 {{> footer }}

@@ -37,7 +37,7 @@ const plantillaRegistroPendiente = datos => {
     Estás a un paso de poder usar el sitio de compras en línea para papelería más seguro.
     <br>
     <a href="${ url }/${ token }"><button>Confirmar cuenta</button></a>
-    <footer><sub>Si no solicitaste registrar tu dirección de correo para este sitio, por favor ignora este correo.</sub></footer>
+    <footer><small>Si no solicitaste registrar tu dirección de correo para este sitio, por favor ignora este correo.</small></footer>
     `
 }
 

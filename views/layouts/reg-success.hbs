@@ -1,0 +1,21 @@
+{{> header }}
+{{> navbar }}
+
+<main class="page">
+    <section class="clean-block clean-form dark">
+        <div class="container">
+            <div class="block-heading">
+                <h2 class="text-info">Registro exitoso</h2>
+            </div>
+            <div class="block-container">
+                {{#if registro }}
+                <p class="text-center">{{ nombre }}, revisa tu bandeja de entrada para confirmar tu registro.</p>
+                {{else}}
+                <p class="text-center">{{ nombre }}, ya eres parte de la plataforma de la papelería más segura.</p>
+                {{/if}}
+            </div>
+        </div>
+    </section>
+</main>
+
+{{> footer }}
