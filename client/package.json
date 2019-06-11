@@ -1,0 +1,19 @@
+{
+  "name": "tiendita-web-client",
+  "version": "0.0.1",
+  "description": "Cliente web del servicio para tiendita-web",
+  "main": "index.js",
+  "repository": "https://github.com/feguedi/tiendita-web",
+  "author": "Ixe Fernández",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "hbs": "^4.0.4",
+    "jsonwebtoken": "^8.5.1",
+    "path": "^0.12.7",
+    "serve-favicon": "^2.5.0"
+  }
+}
