@@ -30,7 +30,7 @@ const getLogin = (req, res) => {
 
 const postLogin = (req, res) => {
     // res.json({ message: 'post Login' })
-    res.render('index', { title: `Login exitoso`, mensaje: x`${ req }` })
+    res.render('index', { title: `Login exitoso`, mensaje: `${ req }` })
 }
 
 const getRegistrar = (req, res) => {
@@ -98,6 +98,7 @@ const postCarrito = (req, res) => {
 }
 
 const putCarrito = (req, res) => {
+    let body = req.body
     res.json({ message: 'put Carrito' })
 }
 
@@ -110,6 +111,7 @@ const getPerfil = (req, res) => {
 }
 
 const putPerfil = (req, res) => {
+    let body = req.body
     res.json({ message: 'put Perfil' })
 }
 

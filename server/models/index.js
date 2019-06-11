@@ -2,6 +2,10 @@
 const { BD_HOST, BD_PORT, BD_NAME } = require('../config')
 const mongoose = require('mongoose')
 const Usuario = require('./usuario')
+const Articulo = require('./articulo')
+const Categoria = require('./categoria')
+const Envio = require('./envio')
+const Carrito = require('./carrito')
 
 const conexion = () => {
     mongoose.connect(`${ BD_HOST }:${ BD_PORT }/${ BD_NAME }`, (err, res) => {
@@ -43,5 +47,6 @@ const actualizarPerfil = (obj = undefined, callback) => {
 }
 
 module.exports = {
+    actualizarPerfil,
     crearUsuario
 }

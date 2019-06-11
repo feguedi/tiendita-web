@@ -22,7 +22,7 @@ const ArticuloSchema = new Schema ({
         type: Number,
         required: true
     },
-    categoria_id: {
+    categoria: {
         type: String,
         required: true
     },

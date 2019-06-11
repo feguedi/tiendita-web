@@ -1,5 +1,6 @@
 'use strict'
 const { Schema, model } = require('mongoose')
+const uniqueValidator = require('mongoose-unique-validator')
 
 let estadosValidos = {
     values: ['pendiente', 'enviado'],
@@ -21,5 +22,7 @@ const EnvioSchema = new Schema({
         required: true
     }
 })
+
+EnvioSchema.plugin(uniqueValidator, 'Envío ya procesado')
 
 module.exports = model('Envio', EnvioSchema)
