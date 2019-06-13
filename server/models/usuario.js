@@ -1,7 +1,6 @@
 'use strict'
 const { Schema, model } = require('mongoose')
 const uniqueValidator = require('mongoose-unique-validator')
-const { generateEmailToken } = require('../controllers/token')
 
 const UsuarioSchema = new Schema({
     nombre: {
@@ -18,9 +17,33 @@ const UsuarioSchema = new Schema({
         unique: true,
         required: [true, `El correo es necesario`]
     },
-    direccion: {
+    calle: {
         type: String,
         required: false
+    },
+    numero: {
+        type: String,
+        required: false
+    },
+    colonia: {
+        type: String,
+        required: false
+    },
+    cp: {
+        type: Number,
+        required: false
+    },
+    municipio: {
+        type: String,
+        required: false
+    },
+    estado: {
+        type: String,
+        required: false
+    },
+    telefono: {
+        type: String,
+        required: true
     },
     password: {
         type: String,
@@ -41,15 +64,15 @@ const UsuarioSchema = new Schema({
     }
 })
 
-UsuarioSchema.methods.toJSON = function () {
-    let user = this;
-    let userObject = user.toObject()
-    delete userObject.password
-    delete userObject.__v
-    delete userObject._id
+// UsuarioSchema.methods.toJSON = function () {
+//     let user = this;
+//     let userObject = user.toObject()
+//     delete userObject.password
+//     delete userObject.__v
+//     delete userObject._id
 
-    return userObject
-}
+//     return userObject
+// }
 
 UsuarioSchema.plugin(uniqueValidator, { message: '{PATH} ya existe' })
 

@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Cliente web del servicio para tiendita-web",
   "main": "index.js",
+  "scripts": {
+    "start": "nodmeon index.js"
+  },
   "repository": "https://github.com/feguedi/tiendita-web",
   "author": "Ixe Fernández",
   "license": "MIT",
@@ -15,5 +18,8 @@
     "jsonwebtoken": "^8.5.1",
     "path": "^0.12.7",
     "serve-favicon": "^2.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
   }
 }

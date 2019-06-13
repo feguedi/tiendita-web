@@ -7,7 +7,7 @@ const ArticuloSchema = new Schema ({
         required: true
     },
     descripcion: {
-        type: String,
+        type: Object,
         required: true
     },
     imagen: {

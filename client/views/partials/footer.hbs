@@ -2,8 +2,11 @@
     {{else}}
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="assets/js/main.js"></script>
+    {{#if article}}
+    <script src="assets/js/smoothproduct.min.js"></script>
+    {{/if}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="assets/js/main.js"></script>
     {{/if}}
 </body>
 
