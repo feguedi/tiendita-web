@@ -1,0 +1,104 @@
+{{> header }}
+
+{{> navbar }}
+
+<main class="page product-page">
+    <section class="clean-block clean-product dark">
+        <div class="container" id="product-container">
+            <div class="block-content">
+                <div class="product-info">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="gallery">
+                                <div class="sp-wrap">
+                                    <img class="img-fluid d-block mx-auto" src="/assets/img/tech/image1.jpg?h=632f7cbe39109a76c61629561f97c295">
+                                    <img class="img-fluid d-block mx-auto" src="/assets/img/tech/image1.jpg?h=632f7cbe39109a76c61629561f97c295">
+                                    <img class="img-fluid d-block mx-auto" src="/assets/img/tech/image1.jpg?h=632f7cbe39109a76c61629561f97c295">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="info">
+                                <h3>{{ articulo_nombre }}</h3>
+                                <div class="rating">
+                                    <img src="/assets/img/star-empty.svg?h=67e3ef1204a154c2af6db4a9eaf69156">
+                                    <img src="/assets/img/star-empty.svg?h=67e3ef1204a154c2af6db4a9eaf69156">
+                                    <img src="/assets/img/star-empty.svg?h=67e3ef1204a154c2af6db4a9eaf69156">
+                                    <img src="/assets/img/star-empty.svg?h=67e3ef1204a154c2af6db4a9eaf69156">
+                                    <img src="/assets/img/star-empty.svg?h=67e3ef1204a154c2af6db4a9eaf69156">
+                                </div>
+                                <div class="price">
+                                    <h3>{{ articulo_precio }}</h3>
+                                </div>
+                                <button class="btn btn-primary" type="button"><i class="icon-basket"></i>Agregar al carrito</button>
+                                <div class="summary">
+                                    <p>{{ articulo_descripcion_breve }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-info">
+                    <div>
+                        <ul class="nav nav-tabs" id="myTab">
+                            <li class="nav-item">
+                                <a class="nav-link active" role="tab" data-toggle="tab" href="#description" id="description-tab">Descripción</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" role="tab" data-toggle="tab" href="#specifications" id="specifications-tabs">Especificaciones</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane active fade show description" role="tabpanel" id="description">
+                            {{!-- 
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim
+                                    nec auctor in, mattis vitae leo. Lorem ipsum dolor sit amet, consectetur adipiscing
+                                    elit.Lorem ipsum dolor sit amet, consectetur adipiscing
+                                    elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo. Lorem ipsum dolor
+                                    sit amet, consectetur adipiscing elit.</p>
+                                <div class="row">
+                                    <div class="col-md-5">
+                                        <figure class="figure"><img class="img-fluid figure-img"
+                                                src="/assets/img/tech/image3.png?h=fd255a920f1b3d638ee1445850afe98b">
+                                        </figure>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <h4>Lorem Ipsum</h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna,
+                                            dignissim nec auctor in, mattis vitae leo. Lorem ipsum dolor sit amet,
+                                            consectetur adipiscing elit.</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-7 right">
+                                        <h4>Lorem Ipsum</h4>
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna,
+                                            dignissim nec auctor in, mattis vitae leo. Lorem ipsum dolor sit amet,
+                                            consectetur adipiscing elit.</p>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <figure class="figure"><img class="img-fluid figure-img"
+                                                src="/assets/img/tech/image3.png?h=fd255a920f1b3d638ee1445850afe98b">
+                                        </figure>
+                                    </div>
+                                </div>
+                            --}}
+                            </div>
+                            <div class="tab-pane fade show specifications" role="tabpanel" id="specifications">
+                                <div class="table-responsive table-bordered">
+                                    <table class="table table-bordered">
+                                        <tbody>
+                                            {{ articulo_especificaciones }}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{{> footer }}

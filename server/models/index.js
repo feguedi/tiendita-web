@@ -8,6 +8,7 @@ const Envio = require('./envio')
 const Carrito = require('./carrito')
 
 const conexion = () => {
+    if (BD_ENV != '' || BD_ENV != '') return console.log(`models: conexion: Por favor especifica un entorno para la base de datos`)
     let bd_dir = BD_ENV == 'local' ? `mongodb://${ BD_HOST }:${ BD_PORT }/${ BD_NAME }` : `mongodb+srv://${ BD_USERNAME }:${ BD_PSSWD }@${ BD_HOST }/${ BD_NAME }`
     mongoose.connect(bd_dir, { useCreateIndex: true, useNewUrlParser: true }, (err, res) => {
         if (err) throw err

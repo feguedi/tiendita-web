@@ -1,0 +1,31 @@
+{{> header }}
+
+{{> navbar }}
+
+<main class="page">
+    <section class="clean-block clean-cart dark">
+        <div class="container">
+            <div class="block-heading">
+                <h2 class="text-info">Carrito</h2>
+            </div>
+            <div class="content">
+                <div class="row no-gutters">
+                    <div class="col-md-12 col-lg-8">
+                        <div class="items">
+                            {{ items }}
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-4">
+                        <div class="summary">
+                            <h3>Resumen</h3>
+                            <h4><span class="text">Subtotal</span><span class="price">{{ subtotal }}</span></h4>
+                            <h4><span class="text">Envío</span><span class="price">{{ envio }}</span></h4>
+                            <h4><span class="text">Total</span><span class="price">{{ total_carrito }}</span></h4><button class="btn btn-primary btn-block btn-lg" type="button">Checkout</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+{{> footer }}
